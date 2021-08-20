@@ -1,0 +1,24 @@
+version: "3"
+services:
+  api:
+    build:
+      context: flask
+    command: ["flask", "run", "--host=0.0.0.0"]
+    volumes:
+      - ./flask:/flask
+      - /mnt/RD/AQUA/image:/flask/image
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=app.py
+    ports:
+      - "5000:5000"
+  app:
+    build:
+      context: web
+    volumes:
+      - ./web:/web
+    ports:
+      - 3000:3000
+    image: app:react
+    container_name: react_container
+    command: npm start
