@@ -132,12 +132,6 @@ class Flask extends React.Component {
     )
   }
 
-  renderButton(){
-    return(
-      <IconLabelButtons />
-    )
-  }
-
   render() {
     const {error, isLoaded, items} = this.state;
     console.log(items)

@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 function sendJson() {
 
   const requestOptions = {
@@ -29,7 +28,6 @@ function sendJson() {
 
     }
   )
-
 }
 
 export default function IconLabelButtons() {
