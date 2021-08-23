@@ -14,7 +14,7 @@ print("App started")
 @app.route('/api/v1.0/test', methods=['GET'])
 def test_response():
     print(os.path.abspath(os.getcwd()))
-    img = cv2.imread('./image/dog.jpg')
+    img = cv2.imread('./cat.jpg')
     #imgTest = cv2.imread('/home/ubuntu/Documents/python/1.jpg')
     h, w, c = img.shape
     #ht, wt, ct = imgTest.shape

@@ -172,7 +172,7 @@ class Flask extends React.Component {
 
 ReactDOM.render(
   //<React.StrictMode>
-//    <App />
+  //  <App />
   //</React.StrictMode>,
   <Flask />,
   document.getElementById('root')

@@ -6,7 +6,7 @@ services:
     command: ["flask", "run", "--host=0.0.0.0"]
     volumes:
       - ./flask:/flask
-      - /mnt/RD/AQUA/image:/flask/image
+     # - /mnt/RD/AQUA/image:/flask/image
     environment:
       - FLASK_ENV=development
       - FLASK_APP=app.py
@@ -17,6 +17,7 @@ services:
       context: web
     volumes:
       - ./web:/web
+      - /web/node_modules
     ports:
       - 3000:3000
     image: app:react
