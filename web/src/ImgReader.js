@@ -5,15 +5,12 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 
 import Fab from "@material-ui/core/Fab";
-import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
 import red from "@material-ui/core/colors/red";
-import pink from "@material-ui/core/colors/pink";
 import blue from "@material-ui/core/colors/blue";
 
 import { withStyles } from '@material-ui/core/styles';
-import SearchIcon from "@material-ui/icons/Search";
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
 
 const styles = (theme) => ({
@@ -192,8 +189,8 @@ class ImageUploadCard extends React.Component {
         <React.Fragment>
           <div className={classes.root}>
             <Card className={this.props.cardName}>
-              {(this.state.mainState == "initial" && this.renderInitialState()) ||
-                (this.state.mainState == "uploaded" &&
+              {(this.state.mainState === "initial" && this.renderInitialState()) ||
+                (this.state.mainState === "uploaded" &&
                   this.renderUploadedState())}
             </Card>
           </div>
