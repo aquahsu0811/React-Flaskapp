@@ -138,7 +138,7 @@ const Flask = () => {
               </li>
             ))}
             <div className="checkbox">
-              {renderCheckbox}
+              {renderCheckbox()}
             </div>
             <div className="slider">
               {<CustomizedSlider />}
