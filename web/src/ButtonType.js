@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Icon from '@material-ui/core/Icon';
 import SaveIcon from '@material-ui/icons/Save';
+import { useContext } from 'react';
+import ImgContext from './store/image-context';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -12,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function sendJson() {
-
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -32,6 +33,8 @@ function sendJson() {
 
 export default function IconLabelButtons() {
   const classes = useStyles();
+  const ctx = useContext(ImgContext)
+  console.log("sendJson",ctx)
 
   return (
     <div>
