@@ -91,27 +91,6 @@ export default function CheckboxLabels() {
 }
 
 export const App = () => {
-  // const [error, setError] = useState(null)
-  // const [items, setitems] = useState([])
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/api/v1.0/test")
-  //     .then(res => res.json()) // res == result
-  //     .then(
-  //       (result) => {
-  //         setitems(
-  //           result.items,
-  //         );
-  //         console.log("result", result)
-  //       },
-  //       (error) => {
-  //         setError(
-  //           true,
-  //         )
-  //       }
-  //     )
-  // }, [])
-
-
   const renderCheckbox = () => {
     return (
       <CheckboxLabels />
@@ -126,9 +105,6 @@ export const App = () => {
 
   return (
     <ImageProvider>
-      {/* {error && <div>Error: {error.message}</div>}
-      {items.length === 0 && <div>Loading...</div>} */}
-      {/* {!error && <div className="Flask"> */}
         <header className="Flask-header">         
             <div className="checkbox">
               {renderCheckbox()}
@@ -146,8 +122,6 @@ export const App = () => {
               <IconLabelButtons />
             </div>
         </header>
-      {/* </div> */}
-      {/* } */}
     </ImageProvider>
   )
 
