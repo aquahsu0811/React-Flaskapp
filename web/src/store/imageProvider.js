@@ -6,7 +6,7 @@ const defaultState = {
     number:0
 }
 
-const cartreducer = (state, action) => {
+const cartreducer = (state = defaultState, action) => {
     switch (action.type) {
         case "ADD":
             let updateItems
