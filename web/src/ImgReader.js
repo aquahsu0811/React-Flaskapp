@@ -13,6 +13,7 @@ import blue from "@material-ui/core/colors/blue";
 import { withStyles } from '@material-ui/core/styles';
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
 
+
 const styles = (theme) => ({
     root: {
       backgroundColor: theme.palette.background.paper,
@@ -77,33 +78,10 @@ const styles = (theme) => ({
     }
   });
 
-class ImageUploadCard extends React.Component {
-    state = {
-      mainState: "initial", // initial, uploaded, multiple
-      imageUploaded: 0,
-      selectedFile: null
-    };
-  
-    handleUploadClick = (event) => {
-      console.log();
-      var file = event.target.files[0];
-      const reader = new FileReader();
-      var url = reader.readAsDataURL(file);
-  
-      reader.onloadend = function (e) {
-        this.setState({
-          selectedFile: [reader.result]
-        });
-      }.bind(this);
-      console.log("url:", url); // Would see a path?
-  
-      this.setState({
-        mainState: "uploaded",
-        selectedFile: event.target.files[0],
-        imageUploaded: 1
-      });
-    };
 
+
+class ImageUploadCard extends React.Component {
+  
     handleTest = (event) =>{
       var files = event.target.files;
 
@@ -117,25 +95,12 @@ class ImageUploadCard extends React.Component {
     renderInitialState() {
       console.log("renderInitialState");
       const { classes, theme } = this.props;
-      const { value } = this.state;
+
       console.log(classes);
       return (
         <React.Fragment>
           <CardContent>
             <Grid container justifyContent="center" alignItems="center">
-              <input
-                accept="image/*"
-                className={classes.input}
-                id="contained-button-file"
-                multiple
-                type="file"
-                onChange={this.handleUploadClick}
-              />
-              <label htmlFor="contained-button-file">
-                <Fab component="span" className={classes.button}>
-                  <AddPhotoAlternateIcon />
-                </Fab>
-              </label>
               <input
                 accept="image/*"
                 className={classes.input}
@@ -155,32 +120,6 @@ class ImageUploadCard extends React.Component {
         </React.Fragment>
       );
     }
-     
-    renderUploadedState() {
-      console.log("renderUploadedState");
-      const { classes, theme } = this.props;
-  
-      return (
-        <React.Fragment>
-          <CardActionArea onClick={this.imageResetHandler}>
-            <img
-              width="100%"
-              className={classes.media}
-              src={this.state.selectedFile}
-            />
-          </CardActionArea>
-        </React.Fragment>
-      );
-    }
-  
-    imageResetHandler = (event) => {
-      console.log("Click!");
-      this.setState({
-        mainState: "initial",
-        selectedFile: null,
-        imageUploaded: 0
-      });
-    };
   
     render() {
       const { classes } = this.props;
@@ -189,14 +128,12 @@ class ImageUploadCard extends React.Component {
         <React.Fragment>
           <div className={classes.root}>
             <Card className={this.props.cardName}>
-              {(this.state.mainState === "initial" && this.renderInitialState()) ||
-                (this.state.mainState === "uploaded" &&
-                  this.renderUploadedState())}
+              {this.renderInitialState()}
             </Card>
           </div>
         </React.Fragment>
       );
     }
-  }
+}
   
 export default withStyles(styles)(ImageUploadCard);

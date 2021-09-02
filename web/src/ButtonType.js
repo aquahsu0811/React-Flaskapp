@@ -35,6 +35,7 @@ export default function IconLabelButtons() {
   const classes = useStyles();
   const ctx = useContext(ImgContext)
   console.log("sendJson",ctx)
+  console.log("item",ctx.items)
 
   return (
     <div>
