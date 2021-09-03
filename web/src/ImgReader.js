@@ -95,7 +95,6 @@ const  ImageUploadCard = () =>  {
       };
     }
  const renderInitialState = () => {
-
       return (
         <React.Fragment>
           <CardContent>
@@ -119,15 +118,10 @@ const  ImageUploadCard = () =>  {
         </React.Fragment>
       );
     }
-  
-    // render() {
-      // const { classes } = props;
-  
-      return (
+        return (
         <React.Fragment>
           <div className={classes.root}>
             <Card >
-            {/* <Card className={props.cardName}> */}
               {renderInitialState()}
             </Card>
           </div>
