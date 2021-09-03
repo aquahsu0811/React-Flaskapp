@@ -12,9 +12,12 @@ import blue from "@material-ui/core/colors/blue";
 
 import { withStyles } from '@material-ui/core/styles';
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
+import { makeStyles } from '@material-ui/core/styles';
 
 
-const styles = (theme) => ({
+const  ImageUploadCard = () =>  {  
+
+  const useStyles = makeStyles(theme => ({
     root: {
       backgroundColor: theme.palette.background.paper,
       width: 500,
@@ -76,13 +79,12 @@ const styles = (theme) => ({
       height: 28,
       margin: 4
     }
-  });
+  }));
 
-
-
-class ImageUploadCard extends React.Component {
+  const classes = useStyles();
   
-    handleTest = (event) =>{
+
+  const  handleTest = (event) =>{
       var files = event.target.files;
 
       for (var i=0; i<files.length; i++) {
@@ -92,11 +94,8 @@ class ImageUploadCard extends React.Component {
         console.log("file:",files[i].webkitRelativePath);
       };
     }
-    renderInitialState() {
-      console.log("renderInitialState");
-      const { classes, theme } = this.props;
+ const renderInitialState = () => {
 
-      console.log(classes);
       return (
         <React.Fragment>
           <CardContent>
@@ -108,7 +107,7 @@ class ImageUploadCard extends React.Component {
                 type="file"
                 multiple
                 webkitdirectory="true"
-                onChange={this.handleTest}
+                onChange={handleTest}
               />
               <label htmlFor="multiple-button-file">
               <Fab component="span" className={classes.button}>
@@ -121,19 +120,20 @@ class ImageUploadCard extends React.Component {
       );
     }
   
-    render() {
-      const { classes } = this.props;
+    // render() {
+      // const { classes } = props;
   
       return (
         <React.Fragment>
           <div className={classes.root}>
-            <Card className={this.props.cardName}>
-              {this.renderInitialState()}
+            <Card >
+            {/* <Card className={props.cardName}> */}
+              {renderInitialState()}
             </Card>
           </div>
         </React.Fragment>
       );
-    }
+    // }
 }
   
-export default withStyles(styles)(ImageUploadCard);
+export default ImageUploadCard;
