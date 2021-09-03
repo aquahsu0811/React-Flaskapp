@@ -15,6 +15,9 @@ import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import ImageProvider from "./store/imageProvider"
 import {Flask} from "./Flask"
+import { Provider  } from 'react-redux'
+import store from './store/store';
+
 const GreenCheckbox = withStyles({
   root: {
     color: green[400],
@@ -115,9 +118,11 @@ export const App = () => {
             <div className="slider">
               <CustomizedSlider />
             </div>
-            <div className="imgreader">
-              <ImageUploadCard />
-            </div>
+            <Provider store={store}>
+              <div className="imgreader">
+                <ImageUploadCard />
+              </div>
+            </Provider>
             <div className="button_t">
               <IconLabelButtons />
             </div>
@@ -126,8 +131,6 @@ export const App = () => {
   )
 
 }
-
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

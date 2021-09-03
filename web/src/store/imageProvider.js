@@ -1,4 +1,5 @@
 import ImgContext from "./image-context";
+import { createStore } from 'redux';
 import { useReducer } from "react"
 
 const defaultState = {

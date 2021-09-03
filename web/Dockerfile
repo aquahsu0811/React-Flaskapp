@@ -10,6 +10,7 @@ RUN npm install
 RUN npm install react-scripts@4.0.3 -g 
 RUN yarn add @material-ui/core
 RUN yarn add @material-ui/icons
+RUN yarn add react-redux
 
 COPY . .
 RUN npm run build
