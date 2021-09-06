@@ -13,17 +13,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function sendJson() {
+function sendJson(path) {
+  //const ctx = useContext(ImgContext)
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ "title": "React POST Request Example" })
+    body: JSON.stringify({ "path": path })
   };
   fetch('http://localhost:5000/api/v2.0/test', requestOptions)
   .then(res => res.json()) // res == result
   .then(
     (result) => {
-      console.log("result:",result)
+      console.log("result:",result);
+      console.log("path:", path);
     },
     (error) => {
 
@@ -36,7 +38,7 @@ export default function IconLabelButtons() {
   const ctx = useContext(ImgContext)
   console.log("sendJson",ctx)
   console.log("item",ctx.items)
-
+  
   return (
     <div>
       {/* This Button uses a Font Icon, see the installation instructions in the Icon component docs. */}
@@ -45,7 +47,7 @@ export default function IconLabelButtons() {
         color="primary"
         className={classes.button}
         endIcon={<Icon>send</Icon>}
-        onClick= {()=>sendJson()}
+        onClick= {()=>sendJson(ctx.imgPath)}
       >
         Send
       </Button>

@@ -11,8 +11,8 @@ import blue from "@material-ui/core/colors/blue";
 
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
 import { makeStyles } from '@material-ui/core/styles';
-import imgReducer from 'imgReaducer';
-import { useDispatch, Provider  } from 'react-redux'
+import { useContext } from 'react';
+import ImgContext from './store/image-context';
 
 
 const  ImageUploadCard = () =>  {  
@@ -56,7 +56,7 @@ const  ImageUploadCard = () =>  {
 
   const classes = useStyles();
   console.log("classes:", classes);
-  const dispath = useDispatch();
+  const ctx = useContext(ImgContext)
 
   const  handleTest = (event) =>{
       var files = event.target.files;
@@ -67,8 +67,8 @@ const  ImageUploadCard = () =>  {
         //output.appendChild(item);
         imgPath[i] = files[i].webkitRelativePath;
       };
-      console.log(imgPath);
-      dispath(ADD(imgPath));
+      console.log("image path:", imgPath);
+      ctx.getImgPath(imgPath);
     }
  const renderInitialState = () => {
     return (

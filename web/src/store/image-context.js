@@ -3,9 +3,11 @@ import React from "react";
 const  ImgContext = React.createContext({
     items: [],
     number: 0,
+    imgPath: [],
     addItem: (item) =>{},
     removeItem :(id) =>{},
-    getItem :(itme) =>{}
+    getItem :(itme) =>{},
+    getImgPath: (item) =>{}
 });
 
 export default ImgContext;

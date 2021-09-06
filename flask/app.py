@@ -67,5 +67,14 @@ def test_response():
 @app.route("/api/v2.0/test",  methods = ['POST'])
 def hello():
     print("--------------------------------------test", flush=True)
-    print(request.get_json(), flush=True)
+    data = request.get_json()
+    print("data:",data, flush = True)
+    print("path:", data['path'])
+    for item in data['path']:
+        print(item)
+
+    
+    print("--------------------------------------end", flush=True)
+
+
     return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 

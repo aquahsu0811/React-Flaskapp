@@ -15,8 +15,6 @@ import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import ImageProvider from "./store/imageProvider"
 import {Flask} from "./Flask"
-import { Provider  } from 'react-redux'
-import store from './store/store';
 
 const GreenCheckbox = withStyles({
   root: {
@@ -118,11 +116,9 @@ export const App = () => {
             <div className="slider">
               <CustomizedSlider />
             </div>
-            <Provider store={store}>
               <div className="imgreader">
                 <ImageUploadCard />
               </div>
-            </Provider>
             <div className="button_t">
               <IconLabelButtons />
             </div>
