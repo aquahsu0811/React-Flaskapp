@@ -3,6 +3,7 @@ import './index.css';
 import CustomizedSlider from './Slider';
 import IconLabelButtons from './ButtonType';
 import ImageUploadCard from './ImgReader';
+import EnhancedTable from './Table'
 import reportWebVitals from './reportWebVitals';
 import { withStyles } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
@@ -121,6 +122,9 @@ export const App = () => {
               </div>
             <div className="button_t">
               <IconLabelButtons />
+            </div>
+            <div className="table">
+              <EnhancedTable />
             </div>
         </header>
     </ImageProvider>
