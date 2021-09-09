@@ -69,7 +69,7 @@ const  ImageUploadCard = () =>  {
       };
       console.log("image path:", imgPath);
       ctx.getImgPath(imgPath);
-    }
+  }
  const renderInitialState = () => {
     return (
       <React.Fragment>

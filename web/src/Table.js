@@ -103,6 +103,7 @@ class MuiVirtualizedTable extends React.PureComponent {
 
   render() {
     const { classes, columns, rowHeight, headerHeight, ...tableProps } = this.props;
+    console.log("classes",classes);
     return (
       <AutoSizer>
         {({ height, width }) => (
@@ -173,14 +174,31 @@ function createData(id, dessert, calories, fat, carbs, protein) {
   return { id, dessert, calories, fat, carbs, protein };
 }
 
-const rows = [];
 
-for (let i = 0; i < 200; i += 1) {
-  const randomSelection = sample[Math.floor(Math.random() * sample.length)];
-  rows.push(createData(i, ...randomSelection));
-}
 
 export default function ReactVirtualizedTable() {
+  
+  const ctx = useContext(ImgContext)
+  /*for (let i = 0; i < 200; i += 1) {
+    const randomSelection = sample[Math.floor(Math.random() * sample.length)];
+    rows.push(createData(i, ...randomSelection));
+  }
+  */
+  function createRow(name, id) {
+    return {name, id};
+  }
+  
+  function createImgData(imgPath){
+    const rows = [];
+    for (var i = 0; i < imgPath.length; i++) {
+      rows.push(createRow(imgPath[i], i));
+    }
+    console.log("rows:",rows);
+  
+    return rows;
+  }
+  const rows = createImgData(ctx.imgPath);
+
   return (
     <Paper style={{ height: 400, width: '100%' }}>
       <VirtualizedTable
@@ -190,7 +208,7 @@ export default function ReactVirtualizedTable() {
           {
             width: 200,
             label: 'Dessert',
-            dataKey: 'dessert',
+            dataKey: 'name',
           },
          
         ]}
