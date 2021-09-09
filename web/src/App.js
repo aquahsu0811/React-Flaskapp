@@ -13,8 +13,12 @@ import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
+<<<<<<< Updated upstream
 import ImageProvider from "./store/imageProvider"
 import {Flask} from "./Flask"
+=======
+
+>>>>>>> Stashed changes
 const GreenCheckbox = withStyles({
   root: {
     color: green[400],
@@ -90,7 +94,32 @@ export default function CheckboxLabels() {
   );
 }
 
+<<<<<<< Updated upstream
 export const App = () => {
+=======
+export  const Flask = () => {
+  const [error, setError] = useState(null)
+  const [items, setitems] = useState([])
+  useEffect(() => {
+    fetch("http://localhost:5000/api/v1.0/test")
+      .then(res => res.json()) // res == result
+      .then(
+        (result) => {
+          setitems(
+            result.items,
+          );
+          console.log("result", result)
+        },
+        (error) => {
+          setError(
+            true,
+          )
+        }
+      )
+  }, [])
+
+
+>>>>>>> Stashed changes
   const renderCheckbox = () => {
     return (
       <CheckboxLabels />
@@ -104,6 +133,7 @@ export const App = () => {
   }
 
   return (
+<<<<<<< Updated upstream
     <ImageProvider>
         <header className="Flask-header">         
             <div className="checkbox">
@@ -123,6 +153,36 @@ export const App = () => {
             </div>
         </header>
     </ImageProvider>
+=======
+    <div>
+      {error && <div>Error: {error.message}</div>}
+      {items.length === 0 && <div>Loading...</div>}
+      {!error && <div className="Flask">
+        <header className="Flask-header">
+          <ul>
+            {items.map(item => (
+              <li key={item.id}>
+                {item.id} {item.img}
+              </li>
+            ))}
+            <div className="checkbox">
+              {renderCheckbox}
+            </div>
+            <div className="slider">
+              {<CustomizedSlider />}
+            </div>
+            <div className="imgreader">
+              {<ImageUploadCard />}
+            </div>
+            <div className="button_t">
+              {<IconLabelButtons />}
+            </div>
+          </ul>
+        </header>
+      </div>
+      }
+    </div>
+>>>>>>> Stashed changes
   )
 
 }
@@ -137,4 +197,7 @@ reportWebVitals();
 
 
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
