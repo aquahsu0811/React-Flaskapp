@@ -19,7 +19,8 @@ export const Flask = () => {
                     )
                 }
             )
-    }, [])
+        }
+    , []) // eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div>
             {error && <div>Error: {error.message}</div>}
