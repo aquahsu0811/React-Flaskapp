@@ -64,6 +64,28 @@ def test_response():
     return response
 
 
+def mergeImg(bImgPath, fImgPath, sizeW, sizeH, alpha=0):
+    print('test')
+    (cx1, cy1, cx2, cy2) = (0,0,0,0)
+    bImg = cv2.imread(bImgPath)
+    bI_h, bI_w = bImg.shape[0], bImg.shape[1]
+    fImg = cv2.imread(fImgPath)
+    fI_h, fI_w = fImg.shape[0], fImg.shape[1]
+
+    if fI_h>sizeH and fI_w>sizeW:
+        fImg = cv2.reaize(fImg, (sizeW,sizeH))
+        (cx1, cy1, cx2, cy2) = (0,0, sizeW, sizeH)
+        print("test")
+
+    randX = random.randint(0, (bI_w-fI_w))
+    randY = random.randiant(0, (bI_h-fI_h))
+    crop_bg = bImg[randY:randY + fI_h, randX:randX + fI_w]
+    (cx1,cy1, cx2,cy2) = (randX, randY, randX + fI_w, randY + fI_h)
+    blended_portion = cv2.addWeighted(crop_bg, alpha, img, 0.8, 0.0)
+    bImg[cy1:cy2 , cx1:cx2] = blended_portion
+    
+    return bImg
+
 @app.route("/api/v2.0/test",  methods = ['POST'])
 def hello():
     print("--------------------------------------test", flush=True)

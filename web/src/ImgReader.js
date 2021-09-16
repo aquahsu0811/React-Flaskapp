@@ -15,7 +15,7 @@ import { useContext } from 'react';
 import ImgContext from './store/image-context';
 
 
-const  ImageUploadCard = () =>  {  
+const  ImageUploadCard = (type) =>  {  
 
   const useStyles = makeStyles(theme => ({
     root: {
@@ -57,7 +57,7 @@ const  ImageUploadCard = () =>  {
   const classes = useStyles();
   console.log("classes:", classes);
   const ctx = useContext(ImgContext)
-
+  
   const  handleTest = (event) =>{
       var files = event.target.files;
       let imgPath = [];
@@ -68,7 +68,11 @@ const  ImageUploadCard = () =>  {
         imgPath[i] = files[i].webkitRelativePath;
       };
       console.log("image path:", imgPath);
-      ctx.getImgPath(imgPath);
+      console.log("type1: ", type);
+      if(type === "background"){
+        console.log("type2: ", type);
+        ctx.getImgPath(imgPath);
+      }
   }
  const renderInitialState = () => {
     return (

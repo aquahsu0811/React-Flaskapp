@@ -117,9 +117,9 @@ export const App = () => {
             <div className="slider">
               <CustomizedSlider />
             </div>
-              <div className="imgreader">
-                <ImageUploadCard />
-              </div>
+            <div className="imgreader">
+              <ImageUploadCard type = "background"/>
+            </div>
             <div className="button_t">
               <IconLabelButtons />
             </div>
