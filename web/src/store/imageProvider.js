@@ -3,7 +3,8 @@ import { useReducer } from "react"
 
 const defaultState = {
     items: [],
-    imgPath: [],
+    bImgDir: [],
+    fImgDir: [],
     number:0
 }
 
@@ -33,11 +34,17 @@ const cartreducer = (state = defaultState, action) => {
                 ...state,
                 items: action.item
             }
-        case "getImgPathAPI":
-            console.log("test image path 2:", action.imgPath);
+        case "getbImgDirAPI":
+            console.log("test image path 2:", action.bImgDir);
             return {
                 ...state,
-                imgPath: action.imgPath
+                bImgDir: action.bImgDir
+            }
+        case "getfImgDirAPI":
+            console.log("test image path fore:", action.fImgDir);
+            return {
+                ...state,
+                fImgDir: action.fImgDir
             }
         default:
             return defaultState
@@ -55,19 +62,25 @@ const CartProvider = props => {
     const getItemHandler = (item) => {
         dispatchCartAction({ type: "getItemAPI", item: item })
     }
-    const getImgPathHandler = (imgPath) => {
+    const getbImgDirHandler = (item) => {
         
-        dispatchCartAction({type: "getImgPathAPI", imgPath: imgPath });
-        console.log("test image path0:", imgPath);
+        dispatchCartAction({type: "getbImgDirAPI", bImgDir: item });
+        console.log("test back image:", item);
+    }
+    const getfImgDirHandler = (item) => {
+        
+        dispatchCartAction({type: "getfImgDirAPI", fImgDir: item });
+        console.log("test fore image:", item);
     }
     const imgContext = {
         items: imgState.items,
         number:imgState.number,
-        imgPath: imgState.imgPath,
+        bImgDir: imgState.bImgDir,
         addItem: addCartItemHandler,
         removeItem: removeCartItemHandler,
         getItem: getItemHandler,
-        getImgPath: getImgPathHandler
+        getbImgDir: getbImgDirHandler,
+        getFImgDir: getfImgDirHandler,
     }
     return <ImgContext.Provider value={imgContext}>
         {props.children}

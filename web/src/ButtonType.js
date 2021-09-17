@@ -47,7 +47,7 @@ export default function IconLabelButtons() {
         color="primary"
         className={classes.button}
         endIcon={<Icon>send</Icon>}
-        onClick= {()=>sendJson(ctx.imgPath)}
+        onClick= {()=>sendJson(ctx.bImgDir)}
       >
         Send
       </Button>

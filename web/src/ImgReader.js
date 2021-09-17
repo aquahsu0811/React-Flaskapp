@@ -62,16 +62,17 @@ const  ImageUploadCard = (type) =>  {
       var files = event.target.files;
       let imgPath = [];
       for (var i=0; i<files.length; i++) {
-        //var item = document.createElement("li");
-        //item.innerHTML = 
-        //output.appendChild(item);
         imgPath[i] = files[i].webkitRelativePath;
       };
+
       console.log("image path:", imgPath);
-      console.log("type1: ", type);
-      if(type === "background"){
-        console.log("type2: ", type);
-        ctx.getImgPath(imgPath);
+      if( type.type === "background"){
+        console.log("type: ", type);
+        ctx.getbImgDir(imgPath);
+      }
+      else if( type.type === "foreground"){
+        console.log("type: ", type);
+        ctx.getfImgDir(imgPath);
       }
   }
  const renderInitialState = () => {

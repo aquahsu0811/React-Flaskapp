@@ -197,7 +197,7 @@ export default function ReactVirtualizedTable() {
   
     return rows;
   }
-  const rows = createImgData(ctx.imgPath);
+  const rows = createImgData(ctx.bImgDir);
 
   return (
     <Paper style={{ height: 400, width: '100%' }}>

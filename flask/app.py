@@ -63,7 +63,6 @@ def test_response():
 
     return response
 
-
 def mergeImg(bImgPath, fImgPath, sizeW, sizeH, alpha=0):
     print('test')
     (cx1, cy1, cx2, cy2) = (0,0,0,0)

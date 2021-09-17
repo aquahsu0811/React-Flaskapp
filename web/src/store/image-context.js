@@ -3,11 +3,12 @@ import React from "react";
 const  ImgContext = React.createContext({
     items: [],
     number: 0,
-    imgPath: [],
+    bImgDir: [],
     addItem: (item) =>{},
     removeItem :(id) =>{},
     getItem :(itme) =>{},
-    getImgPath: (item) =>{}
+    getbImgDir: (item) =>{},
+    getfImgDir: (item) =>{}
 });
 
 export default ImgContext;
