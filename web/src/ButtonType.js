@@ -46,27 +46,19 @@ export default function IconLabelButtons() {
         variant="contained"
         color="primary"
         className={classes.button}
-        endIcon={<Icon>send</Icon>}
+        endIcon={<CloudUploadIcon />}
         onClick= {()=>sendJson(ctx.bImgDir)}
       >
         Send
       </Button>
       <Button
         variant="contained"
-        color="default"
+        color="primary"
         className={classes.button}
         startIcon={<CloudUploadIcon />}
+        onClick= {()=>sendJson(ctx.bImgDir)}
       >
         Upload
-      </Button>
-      <Button
-        variant="contained"
-        color="primary"
-        size="small"
-        className={classes.button}
-        startIcon={<SaveIcon />}
-      >
-        Save
       </Button>
     </div>
   );

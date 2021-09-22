@@ -3,7 +3,7 @@ import './index.css';
 import CustomizedSlider from './Slider';
 import IconLabelButtons from './ButtonType';
 import ImageUploadCard from './ImgReader';
-import EnhancedTable from './Table'
+//import EnhancedTable from './Table'
 import reportWebVitals from './reportWebVitals';
 import { withStyles } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
@@ -16,6 +16,7 @@ import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import ImageProvider from "./store/imageProvider"
 import {Flask} from "./Flask"
+import { createMuiTheme } from '@material-ui/core/styles';
 
 const GreenCheckbox = withStyles({
   root: {
@@ -118,13 +119,11 @@ export const App = () => {
               <CustomizedSlider />
             </div>
             <div className="imgreader">
-              <ImageUploadCard type = "background"/>
+              <ImageUploadCard/>
             </div>
+
             <div className="button_t">
               <IconLabelButtons />
-            </div>
-            <div className="table">
-              <EnhancedTable />
             </div>
         </header>
     </ImageProvider>

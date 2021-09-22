@@ -76,11 +76,12 @@ const CartProvider = props => {
         items: imgState.items,
         number:imgState.number,
         bImgDir: imgState.bImgDir,
+        fImgDir: imgState.fImgDir,
         addItem: addCartItemHandler,
         removeItem: removeCartItemHandler,
         getItem: getItemHandler,
         getbImgDir: getbImgDirHandler,
-        getFImgDir: getfImgDirHandler,
+        getfImgDir: getfImgDirHandler,
     }
     return <ImgContext.Provider value={imgContext}>
         {props.children}

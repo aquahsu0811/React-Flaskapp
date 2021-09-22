@@ -4,6 +4,7 @@ const  ImgContext = React.createContext({
     items: [],
     number: 0,
     bImgDir: [],
+    fImgDir: [],
     addItem: (item) =>{},
     removeItem :(id) =>{},
     getItem :(itme) =>{},

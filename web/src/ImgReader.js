@@ -15,7 +15,7 @@ import { useContext } from 'react';
 import ImgContext from './store/image-context';
 
 
-const  ImageUploadCard = (type) =>  {  
+const  ImageUploadCard = () =>  {  
 
   const useStyles = makeStyles(theme => ({
     root: {
@@ -58,24 +58,35 @@ const  ImageUploadCard = (type) =>  {
   console.log("classes:", classes);
   const ctx = useContext(ImgContext)
   
-  const  handleTest = (event) =>{
-      var files = event.target.files;
-      let imgPath = [];
-      for (var i=0; i<files.length; i++) {
-        imgPath[i] = files[i].webkitRelativePath;
-      };
-
-      console.log("image path:", imgPath);
-      if( type.type === "background"){
-        console.log("type: ", type);
-        ctx.getbImgDir(imgPath);
-      }
-      else if( type.type === "foreground"){
-        console.log("type: ", type);
-        ctx.getfImgDir(imgPath);
-      }
+  const  handleBackgroundFiles = (event) =>{
+    var files = event.target.files;
+    let imgPath = [];
+    for (var i=0; i<files.length; i++) {
+      imgPath[i] = files[i].webkitRelativePath;
+    };
+    console.log("type background");
+    ctx.getbImgDir(imgPath);
+    /*if( type.type === "background"){
+      ctx.getbImgDir(imgPath);
+    }
+    else if( type.type === "foreground"){
+      ctx.getfImgDir(imgPath);
+    }*/
   }
- const renderInitialState = () => {
+
+  const  handleForegroundFiles = (event) =>{
+    var files = event.target.files;
+    let imgPath = [];
+    for (var i=0; i<files.length; i++) {
+      imgPath[i] = files[i].webkitRelativePath;
+    };
+
+    //console.log("image path:", imgPath);
+    console.log("type foreground");
+    ctx.getfImgDir(imgPath);
+  }
+
+  const renderInitialState = () => {
     return (
       <React.Fragment>
         <CardContent>
@@ -87,12 +98,28 @@ const  ImageUploadCard = (type) =>  {
               type="file"
               multiple
               webkitdirectory="true"
-              onChange={handleTest}
+              onChange={handleBackgroundFiles}
             />
             <label htmlFor="multiple-button-file">
-            <Fab component="span" className={classes.button}>
-              <AddPhotoAlternateIcon />
-            </Fab>
+              <Fab variant="extended" color="primary" component="span" className={classes.button}>
+                <AddPhotoAlternateIcon />
+                Background
+              </Fab>
+            </label>
+            <input
+              accept="image/*"
+              className={classes.input}
+              id="multiple-button-file-fore"
+              type="file"
+              multiple
+              webkitdirectory="true"
+              onChange={handleForegroundFiles}
+            />
+            <label htmlFor="multiple-button-file-fore">
+              <Fab variant="extended" color="primary" component="span" className={classes.button}>
+                <AddPhotoAlternateIcon />
+                Foreground
+              </Fab>
             </label>
           </Grid>
         </CardContent>
