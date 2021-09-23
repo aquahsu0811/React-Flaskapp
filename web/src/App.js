@@ -16,7 +16,8 @@ import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import ImageProvider from "./store/imageProvider"
 import {Flask} from "./Flask"
-import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from "@material-ui/styles";
+import { createMuiTheme } from "@material-ui/core";
 
 const GreenCheckbox = withStyles({
   root: {
@@ -93,7 +94,14 @@ export default function CheckboxLabels() {
   );
 }
 
+const theme = createMuiTheme({
+  palette: {
+    type: "dark"
+  }
+});
+
 export const App = () => {
+  
   const renderCheckbox = () => {
     return (
       <CheckboxLabels />
@@ -107,26 +115,27 @@ export const App = () => {
   }
 
   return (
-    <ImageProvider>
+    <ThemeProvider theme={theme}>
+      <ImageProvider>
         <header className="Flask-header">         
-            <div className="checkbox">
-              {renderCheckbox()}
-            </div>
-            <div>
-            <Flask/>
-            </div>
-            <div className="slider">
-              <CustomizedSlider />
-            </div>
-            <div className="imgreader">
-              <ImageUploadCard/>
-            </div>
-
-            <div className="button_t">
-              <IconLabelButtons />
-            </div>
+          <div className="checkbox">
+            {renderCheckbox()}
+          </div>
+          <div>
+          <Flask/>
+          </div>
+          <div className="slider">
+            <CustomizedSlider />
+          </div>
+          <div className="imgreader">
+            <ImageUploadCard/>
+          </div>
+          <div className="button_t">
+            <IconLabelButtons />
+          </div>
         </header>
-    </ImageProvider>
+      </ImageProvider>
+    </ThemeProvider>
   )
 
 }
