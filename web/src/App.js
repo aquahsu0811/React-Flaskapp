@@ -15,10 +15,9 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import ImageProvider from "./store/imageProvider"
-import {Flask} from "./Flask"
+import { Flask } from "./Flask"
 import { ThemeProvider } from "@material-ui/styles";
-import { createMuiTheme } from "@material-ui/core";
-
+import { createMuiTheme } from "@material-ui/core/styles";
 const GreenCheckbox = withStyles({
   root: {
     color: green[400],
@@ -101,7 +100,7 @@ const theme = createMuiTheme({
 });
 
 export const App = () => {
-  
+
   const renderCheckbox = () => {
     return (
       <CheckboxLabels />
@@ -117,18 +116,18 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <ImageProvider>
-        <header className="Flask-header">         
+        <header className="Flask-header">
           <div className="checkbox">
             {renderCheckbox()}
           </div>
           <div>
-          <Flask/>
+            <Flask />
           </div>
           <div className="slider">
             <CustomizedSlider />
           </div>
           <div className="imgreader">
-            <ImageUploadCard/>
+            <ImageUploadCard />
           </div>
           <div className="button_t">
             <IconLabelButtons />
