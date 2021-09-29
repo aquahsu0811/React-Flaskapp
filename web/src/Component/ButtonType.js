@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { useContext } from 'react';
-import ImgContext from './store/image-context';
+import ImgContext from '../store/image-context';
 
 const useStyles = makeStyles((theme) => ({
   button: {

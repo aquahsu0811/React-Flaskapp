@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
-import CustomizedSlider from './Slider';
-import IconLabelButtons from './ButtonType';
-import ImageUploadCard from './ImgReader';
+import CustomizedSlider from './Component/Slider';
+import IconLabelButtons from './Component/ButtonType';
+import ImageUploadCard from './Component/ImgReader';
 //import EnhancedTable from './Table'
 import reportWebVitals from './reportWebVitals';
 import { withStyles } from '@material-ui/core/styles';
@@ -16,8 +16,9 @@ import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import ImageProvider from "./store/imageProvider"
 import { Flask } from "./Flask"
-import { ThemeProvider } from "@material-ui/styles";
-import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/core/styles"
+import { darkTheme } from "./Component/UI/Theme"
+
 const GreenCheckbox = withStyles({
   root: {
     color: green[400],
@@ -93,12 +94,6 @@ export default function CheckboxLabels() {
   );
 }
 
-const theme = createMuiTheme({
-  palette: {
-    type: "dark"
-  }
-});
-
 export const App = () => {
 
   const renderCheckbox = () => {
@@ -114,34 +109,21 @@ export const App = () => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <ImageProvider>
-        <header className="Flask-header">
-          <div className="checkbox">
-            {renderCheckbox()}
-          </div>
-          <div>
-            <Flask />
-          </div>
-          <div className="slider">
-            <CustomizedSlider />
-          </div>
-          <div className="imgreader">
-            <ImageUploadCard />
-          </div>
-          <div className="button_t">
-            <IconLabelButtons />
-          </div>
-        </header>
-      </ImageProvider>
-    </ThemeProvider>
+    <ImageProvider>
+      
+      <header className="Flask-header">
+        <div className="imgreader">
+          <ImageUploadCard />
+        </div>
+        <div className="button_t">
+          <IconLabelButtons />
+        </div>
+      </header>
+    </ImageProvider>
   )
 
 }
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
 

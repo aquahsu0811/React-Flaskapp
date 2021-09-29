@@ -12,7 +12,7 @@ import blue from "@material-ui/core/colors/blue";
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
 import { makeStyles } from '@material-ui/core/styles';
 import { useContext } from 'react';
-import ImgContext from './store/image-context';
+import ImgContext from '../store/image-context';
 
 
 const  ImageUploadCard = () =>  {  
