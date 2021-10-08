@@ -3,6 +3,7 @@ services:
   api:
     build:
       context: flask
+    image: server:flask
     command: ["flask", "run", "--host=0.0.0.0"]
     volumes:
       - ./flask:/flask
@@ -12,6 +13,7 @@ services:
       - FLASK_APP=app.py
     ports:
       - "5000:5000"
+    container_name: flask
   app:
     build:
       context: web
@@ -22,6 +24,6 @@ services:
       CHOKIDAR_USEPOLLING: "true"
     ports:
       - 3000:3000
-    image: app:react
-    container_name: react_container
+    image: web:react
+    container_name: react
     command: npm start

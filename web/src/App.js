@@ -14,10 +14,12 @@ import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
-import ImageProvider from "./store/imageProvider"
-import { Flask } from "./Flask"
+import Layout from "./Component/UI/Layout"
+//import { Flask } from "./Flask"
 import { ThemeProvider } from "@material-ui/core/styles"
 import { darkTheme } from "./Component/UI/Theme"
+import Typography from "@material-ui/core/Typography"
+import Grid from "@material-ui/core/Grid"
 
 const GreenCheckbox = withStyles({
   root: {
@@ -109,8 +111,8 @@ export const App = () => {
   }
 
   return (
-    <ImageProvider>
-      
+    <Layout>
+
       <header className="Flask-header">
         <div className="imgreader">
           <ImageUploadCard />
@@ -119,14 +121,9 @@ export const App = () => {
           <IconLabelButtons />
         </div>
       </header>
-    </ImageProvider>
+    </Layout>
   )
 
 }
 
 reportWebVitals();
-
-
-
-
-
